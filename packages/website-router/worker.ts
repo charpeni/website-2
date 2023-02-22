@@ -10,7 +10,7 @@ import { GoogleAnalyticsHandler } from './html-handlers/ga';
 import { handleFavicon, shouldHandleFavicon } from './favicon/handler';
 import { handleFeed, shouldHandleFeed } from './feed/handler';
 import { TitleHandler } from './titles-tags/title-seo';
-import {MANAGE_TITLE} from './titles-tags/config';
+import { MANAGE_TITLE } from './titles-tags/config';
 
 declare const SENTRY_DSN: string;
 declare const RELEASE: string;
