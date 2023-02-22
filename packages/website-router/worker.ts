@@ -9,6 +9,8 @@ import { CrispHandler } from './html-handlers/crisp';
 import { GoogleAnalyticsHandler } from './html-handlers/ga';
 import { handleFavicon, shouldHandleFavicon } from './favicon/handler';
 import { handleFeed, shouldHandleFeed } from './feed/handler';
+import { TitleHandler } from './titles-tags/title-seo';
+import {MANAGE_TITLE} from './titles-tags/config';
 
 declare const SENTRY_DSN: string;
 declare const RELEASE: string;
@@ -32,6 +34,7 @@ const manipulateResponse: ManipulateResponseFn = async (record, rawResponse) => 
       .on('head', new FaviconHandler())
       .on('head', new CrispHandler(crispWebsiteId, record))
       .on('head', new GoogleAnalyticsHandler(gaTrackingId))
+      .on('head', new TitleHandler(MANAGE_TITLE))
       .transform(result);
   }
 
